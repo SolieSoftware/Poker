@@ -13,6 +13,9 @@ void DealHand(std::vector<Player> tablePlayers) {
 
     int dealer, smallBlind, bigBlind = setDealerAndBlinds(0, 1, 2, sizeof(tablePlayers));
     std::vector<std::string> shuffDeck = shuffleDeck(deck);
+    std::string choices[4] = {"Fold", "Check", "Match", "Raise"};
+
+    int blindAmount = 100;
 
     for (auto player: tablePlayers) {
         std::string card1 = shuffDeck.back();
@@ -22,7 +25,23 @@ void DealHand(std::vector<Player> tablePlayers) {
         player.setCards(card1, card2);
     }
 
+    tablePlayers[smallBlind].betMoney(blindAmount);
+    pot += blindAmount;
+    tablePlayers[bigBlind].betMoney(blindAmount*2);
+    pot += blindAmount;
+
+    int round_bet = blindAmount*2;
+
     
+
+
+
+    for (int i= 0; i<tablePlayers.size(); i++) {
+
+
+
+    }
+
 
 }
 
@@ -47,15 +66,16 @@ int main() {
     cout << "What is your Name : ";
     cin >> name;
     cout << "\n\n\n";
+
+    YourPlayer you;
+    you.setName(name);
+
     std::string names[10] = {"Matt", "Jack", "James", "Cal", "Fin", "Freddie", "Sikky"};
 
 
     std::vector<Player> tablePlayers = getRoster(names, players);
 
-    Player me;
-    me.setName(name);
-
-    tablePlayers.push_back(me);
+    tablePlayers.push_back(you);
 
     cout << "Welcome to all poker players!!!\n\n";
 

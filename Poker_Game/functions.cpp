@@ -20,8 +20,16 @@ using namespace std;
 
     }
 
+    std::string Player::showCards() {
+        return firstCard, secondCard;
+    }
+
     std::string Player::getName() {
         return name;
+    }
+
+    void Player::betMoney(int amount) {
+        money -= amount;
     }
 
 

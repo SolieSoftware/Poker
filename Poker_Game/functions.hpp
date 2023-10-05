@@ -11,14 +11,20 @@ class Player {
     std::string name;
     std::string firstCard;
     std::string secondCard;
-    int money;
+    int money = 50000;
     void setName(std::string new_name);
     void setCards(std::string new_firstCard, std::string new_secondCard);
+    void betMoney(int amount);
+    std::string showCards();
 
     void removeCards();
     std::string getName();
 };
 
+class YourPlayer: public Player {
+    
+
+};
 
 void rules();
 
